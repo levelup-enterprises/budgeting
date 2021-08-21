@@ -35,6 +35,9 @@ if ($req->request === "envelopes/add") {
   }
 
   $insert["name"] = ucfirst($insert["name"]);
+  isset($insert["default_method"])
+    ? ($insert["default_method"] = ucfirst($insert["default_method"]))
+    : ($insert["default_method"] = "Cash");
 
   // Load nested values
   $insert["tag_name"] = ucfirst($req->data->tag->name);
@@ -72,14 +75,17 @@ if ($req->request === "envelopes/edit/total") {
 
   // Initialize insert object
   $insert = [
+    "envelope_id" => $req->data->id,
     "owner" => $auth->owner,
     "amount" => $req->data->amount,
     "total" => $req->data->total,
     "date" => (new DateTime())->format("Y-m-d H:i:s"),
   ];
 
-  !empty($req->data->source) && ($insert["source"] = $req->data->source);
-  !empty($req->data->method) && ($insert["method"] = $req->data->method);
+  !empty($req->data->source) &&
+    ($insert["source"] = ucfirst($req->data->source));
+  !empty($req->data->method) &&
+    ($insert["method"] = ucfirst($req->data->method));
 
   // Update total
   $db->startTransaction();
