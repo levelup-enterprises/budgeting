@@ -4,26 +4,20 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInite1a622eee6041c793e9443188198b0e4
+class ComposerStaticInit96780e3b266f1f5ba45f77b44c392eec
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
-        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
-        '60799491728b879e74601d83e38b2cad' => __DIR__ . '/..' . '/illuminate/collections/helpers.php',
-        '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
+        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
         '71ecd0286a4e74fd8732297fb587023c' => __DIR__ . '/..' . '/thingengineer/mysqli-database-class/MysqliDb.php',
         'd383f1ec7b1e54a09cb53eb6fcf751e0' => __DIR__ . '/..' . '/thingengineer/mysqli-database-class/dbObject.php',
     );
 
     public static $prefixLengthsPsr4 = array (
-        'v' => 
-        array (
-            'voku\\' => 5,
-        ),
         'p' => 
         array (
             'phpseclib\\' => 10,
@@ -39,12 +33,9 @@ class ComposerStaticInite1a622eee6041c793e9443188198b0e4
             'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Contracts\\Translation\\' => 30,
             'Symfony\\Component\\Translation\\' => 30,
-            'Spatie\\SimpleExcel\\' => 19,
         ),
         'P' => 
         array (
-            'Psr\\SimpleCache\\' => 16,
-            'Psr\\Container\\' => 14,
             'PHPMailer\\PHPMailer\\' => 20,
         ),
         'M' => 
@@ -54,8 +45,6 @@ class ComposerStaticInite1a622eee6041c793e9443188198b0e4
         ),
         'I' => 
         array (
-            'Illuminate\\Support\\' => 19,
-            'Illuminate\\Contracts\\' => 21,
             'Icewind\\Streams\\' => 16,
             'Icewind\\SMB\\' => 12,
         ),
@@ -66,7 +55,6 @@ class ComposerStaticInite1a622eee6041c793e9443188198b0e4
         'D' => 
         array (
             'Dotenv\\' => 7,
-            'Doctrine\\Inflector\\' => 19,
         ),
         'C' => 
         array (
@@ -79,10 +67,6 @@ class ComposerStaticInite1a622eee6041c793e9443188198b0e4
     );
 
     public static $prefixDirsPsr4 = array (
-        'voku\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
-        ),
         'phpseclib\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
@@ -111,18 +95,6 @@ class ComposerStaticInite1a622eee6041c793e9443188198b0e4
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
         ),
-        'Spatie\\SimpleExcel\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/spatie/simple-excel/src',
-        ),
-        'Psr\\SimpleCache\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
-        ),
-        'Psr\\Container\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/container/src',
-        ),
         'PHPMailer\\PHPMailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
@@ -134,16 +106,6 @@ class ComposerStaticInite1a622eee6041c793e9443188198b0e4
         'Mail\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app/Mail',
-        ),
-        'Illuminate\\Support\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/illuminate/collections',
-            1 => __DIR__ . '/..' . '/illuminate/macroable',
-            2 => __DIR__ . '/..' . '/illuminate/support',
-        ),
-        'Illuminate\\Contracts\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/illuminate/contracts',
         ),
         'Icewind\\Streams\\' => 
         array (
@@ -161,10 +123,6 @@ class ComposerStaticInite1a622eee6041c793e9443188198b0e4
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
         ),
-        'Doctrine\\Inflector\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector',
-        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -177,7 +135,6 @@ class ComposerStaticInite1a622eee6041c793e9443188198b0e4
 
     public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
-        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
@@ -186,9 +143,9 @@ class ComposerStaticInite1a622eee6041c793e9443188198b0e4
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInite1a622eee6041c793e9443188198b0e4::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInite1a622eee6041c793e9443188198b0e4::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInite1a622eee6041c793e9443188198b0e4::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit96780e3b266f1f5ba45f77b44c392eec::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit96780e3b266f1f5ba45f77b44c392eec::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit96780e3b266f1f5ba45f77b44c392eec::$classMap;
 
         }, null, ClassLoader::class);
     }

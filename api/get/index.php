@@ -61,6 +61,7 @@ if ($req->request === "envelopes/id") {
 
   // Get history
   $db->where("owner", $auth->owner);
+  $db->where("envelope_id", $envelope["_id"]);
   $db->orderBy("_id", "desc");
   $history = $db->get("history", null, [
     "DATE_FORMAT(date, '%m/%d/%Y') as date",
