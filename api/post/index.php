@@ -153,10 +153,31 @@ if ($req->request === "envelopes/edit") {
 //*-----------------------------------------
 
 //*-----------------------------------------
-//# Get new user
+//# Update Pinned
+if ($req->request === "envelopes/pin") {
+  //! Require data
+  !isset($req->data->id) &&
+    Response::message(["message" => "Id required!"], 406);
+
+  // Update data
+  $db->rawQuery("UPDATE envelopes SET pinned = pinned ^ 1 WHERE _id = ?", [
+    $req->data->id,
+  ]);
+
+  //! Return errors
+  $db->getLastErrno() &&
+    Response::message(["message" => $db->getLastError()], 400);
+
+  // Return data
+  Response::message(["message" => "Envelope pinned!"]);
+}
+//*-----------------------------------------
+
+//*-----------------------------------------
+//# Create new user
 if ($req->request === "users/add") {
   //! Require Role
-  $auth->role !== "super_user" &&
+  $auth->role !== "admin" &&
     Response::message(
       ["message" => "You are not authorized to view this information!"],
       401
@@ -166,7 +187,7 @@ if ($req->request === "users/add") {
   !isset($req->data) && Response::message(["message" => "Invalid data!"], 406);
 
   //! Check required fields
-  $required = ["fname", "lname", "email", "defaultSource", "password"];
+  $required = ["fname", "lname", "email", "defaultMethod", "password"];
   $data = array_keys((array) $req->data);
   $data = array_diff($required, $data);
   count($data) > 0 &&
@@ -179,7 +200,7 @@ if ($req->request === "users/add") {
   $insert = [
     "name" => $req->data->fname . " " . $req->data->lname,
     "email" => $req->data->email,
-    "default_source" => $req->data->defaultSource,
+    "default_method" => $req->data->defaultMethod,
     "password" => password_hash($req->data->password, PASSWORD_DEFAULT),
     "token" => bin2hex(openssl_random_pseudo_bytes(16)),
     "created" => (new DateTime())->format("Y-m-d H:i:s"),

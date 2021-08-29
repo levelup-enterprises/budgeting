@@ -36,4 +36,15 @@ class Headers
     );
     header("Content-Type: application/json; charset=UTF-8");
   }
+
+  static function delete()
+  {
+    header("Access-Control-Allow-Origin:" . FRONTEND_URL);
+    header("Access-Control-Allow-Credentials: true");
+    header("Access-Control-Allow-Methods: POST, DELETE, OPTIONS");
+    header(
+      "Access-Control-Allow-Headers: Origin, Content-Type, Authentication, Authorization, Access"
+    );
+    header("Content-Type: application/json; charset=UTF-8");
+  }
 }
