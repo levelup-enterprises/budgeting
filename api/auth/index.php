@@ -49,6 +49,7 @@ if ($req->request === "user/login") {
     $payload = [
       "owner" => $user["_id"],
       "role" => $user["role"],
+      "defaultDateRange" => $user["default_date_range"],
       "defaultMethod" => $user["default_method"],
     ];
 
