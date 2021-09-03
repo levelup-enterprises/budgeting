@@ -290,6 +290,17 @@ if ($req->request === "summary/account") {
   !isset($req->data->account) &&
     Response::message(["message" => "Account required!"], 406);
 
+  // If dates sent
+  isset($req->data->dates) &&
+    $db->where(
+      "date",
+      [
+        $req->data->dates->start . " 00:00:00",
+        $req->data->dates->end . " 23:59:59",
+      ],
+      "BETWEEN"
+    );
+
   // Get all transactions to accounts
   $e = $db->subQuery("e");
   $e->where("owner", $auth->owner);
@@ -308,16 +319,16 @@ if ($req->request === "summary/account") {
     "t.date as Date",
   ]);
 
+  //! Return errors
+  $db->getLastErrno() &&
+    Response::message(["message" => $db->getLastError()], 400);
+
   $summary = [];
   foreach ($transactions as $values) {
     isset($summary[$values["Method"]])
       ? ($summary[$values["Method"]] += (int) $values["Amount"])
       : ($summary[$values["Method"]] = (int) $values["Amount"]);
   }
-
-  //! Return errors
-  $db->getLastErrno() &&
-    Response::message(["message" => $db->getLastError()], 400);
 
   // Return data
   Response::message([
