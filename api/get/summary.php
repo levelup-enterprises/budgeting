@@ -28,7 +28,7 @@ if ($req->request === "summary/all") {
   $db->join($t, "h.envelope_id=t._id", "LEFT");
   $db->groupBy("account");
   $transactions = $db->get(
-    "history h",
+    "transactions h",
     null,
     "t.account, ROUND(SUM(h.amount),2) as amount"
   );
@@ -41,7 +41,7 @@ if ($req->request === "summary/all") {
   $db->where("owner", $auth->owner);
   $db->groupBy("method");
   $db->orderBy("method", "desc");
-  $history = $db->get("history", null, [
+  $history = $db->get("transactions", null, [
     "method",
     "ROUND(SUM(amount),2) as amount",
     "ROUND(SUM(total),2) as total",
@@ -123,7 +123,7 @@ if ($req->request === "summary/account") {
   $db->where("e._id", null, "IS NOT");
   $db->orderBy("t.date", "desc");
   $db->join($e, "e._id=t.envelope_id", "LEFT");
-  $transactions = $db->get("history t", null, [
+  $transactions = $db->get("transactions t", null, [
     "e._id as id",
     "e.name as 'Envelope Name'",
     "t.amount as Amount",

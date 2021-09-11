@@ -53,7 +53,7 @@ if ($req->request === "envelopes/id") {
   $db->where("owner", $auth->owner);
   $db->where("envelope_id", $envelope["_id"]);
   $db->orderBy("_id", "desc");
-  $history = $db->get("history", null, [
+  $history = $db->get("transactions", null, [
     "DATE_FORMAT(date, '%m/%d/%Y') as Date",
     "amount as Amount",
     "source as Source",

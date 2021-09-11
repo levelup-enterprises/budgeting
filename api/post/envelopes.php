@@ -72,6 +72,7 @@ if ($req->request === "envelopes/edit/total") {
     ($insert["source"] = ucfirst($req->data->source));
   !empty($req->data->method) &&
     ($insert["method"] = ucfirst($req->data->method));
+  !isset($req->data->method) && ($insert["method"] = $auth->defaultMethod);
 
   // Update total
   $db->startTransaction();
@@ -85,7 +86,7 @@ if ($req->request === "envelopes/edit/total") {
   }
 
   // Update history
-  $db->insert("history", $insert);
+  $db->insert("transactions", $insert);
 
   //! Return errors
   if ($db->getLastErrno()) {
