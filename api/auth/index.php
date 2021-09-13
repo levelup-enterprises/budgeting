@@ -51,6 +51,10 @@ if ($req->request === "user/login") {
       "role" => $user["role"],
       "defaultDateRange" => $user["default_date_range"],
       "defaultMethod" => $user["default_method"],
+      "customDates" => [
+        "start" => $user["custom_date_start"],
+        "end" => $user["custom_date_end"],
+      ],
     ];
 
     Response::message((new JWT())->createJWT($payload));

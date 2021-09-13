@@ -47,7 +47,10 @@ if ($req->request === "envelopes/id") {
   // Get envelope
   $db->where("owner", $auth->owner);
   $db->where("_id", $req->id);
-  $envelope = $db->getOne("envelopes");
+  $envelope = $db->getOne(
+    "envelopes",
+    "*, round((values_total/values_goal)*100,2) as percentage"
+  );
 
   // Get history
   $db->where("owner", $auth->owner);
@@ -60,10 +63,10 @@ if ($req->request === "envelopes/id") {
     "method as Method",
   ]);
 
-  $percentage =
-    $envelope["values_goal"] > 0
-      ? round(($envelope["values_total"] / $envelope["values_goal"]) * 100)
-      : 0;
+  // $percentage =
+  //   $envelope["values_goal"] > 0
+  //     ? round(($envelope["values_total"] / $envelope["values_goal"]) * 100)
+  //     : 0;
 
   $res = [
     "id" => $envelope["_id"],
@@ -83,7 +86,7 @@ if ($req->request === "envelopes/id") {
     "values" => [
       "goal" => $envelope["values_goal"],
       "total" => $envelope["values_total"],
-      "percentage" => $percentage,
+      "percentage" => $envelope["percentage"],
     ],
     "history" => $history,
   ];

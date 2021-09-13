@@ -18,7 +18,7 @@ if ($req->request === "envelope") {
 
   // Delete envelope
   $db->where("owner", $auth->owner);
-  $db->where("_id", $req->data);
+  $db->where("_id", $req->data->id);
   $db->delete("envelopes");
 
   //! Return errors
@@ -27,7 +27,7 @@ if ($req->request === "envelope") {
 
   // Delete history
   $db->where("owner", $auth->owner);
-  $db->where("envelope_id", $req->data);
+  $db->where("envelope_id", $req->data->id);
   $db->delete("transactions");
 
   //! Return errors

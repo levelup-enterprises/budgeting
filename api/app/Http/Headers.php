@@ -6,7 +6,7 @@ class Headers
 {
   static function get()
   {
-    header("Access-Control-Allow-Origin:" . FRONTEND_URL);
+    header("Access-Control-Allow-Origin:" . CORS_ACCESS);
     header("Access-Control-Allow-Credentials: true");
     header("Access-Control-Allow-Methods: GET, OPTIONS");
     header(
@@ -17,7 +17,7 @@ class Headers
 
   static function post()
   {
-    header("Access-Control-Allow-Origin:" . FRONTEND_URL);
+    header("Access-Control-Allow-Origin:" . CORS_ACCESS);
     header("Access-Control-Allow-Credentials: true");
     header("Access-Control-Allow-Methods: POST, OPTIONS");
     header(
@@ -28,7 +28,7 @@ class Headers
 
   static function both()
   {
-    header("Access-Control-Allow-Origin:" . FRONTEND_URL);
+    header("Access-Control-Allow-Origin:" . CORS_ACCESS);
     header("Access-Control-Allow-Credentials: true");
     header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
     header(
@@ -39,7 +39,7 @@ class Headers
 
   static function delete()
   {
-    header("Access-Control-Allow-Origin:" . FRONTEND_URL);
+    header("Access-Control-Allow-Origin:" . CORS_ACCESS);
     header("Access-Control-Allow-Credentials: true");
     header("Access-Control-Allow-Methods: POST, DELETE, OPTIONS");
     header(
