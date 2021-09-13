@@ -32,11 +32,11 @@ class JWT
 
     // Create the token payload
     if ($data) {
-      $data["exp"] = Carbon::now()->addHour(1);
+      $data["exp"] = Carbon::now()->addHour(JWT_EXPIRE);
       $payload = json_encode($data);
     } else {
       $payload = json_encode([
-        "exp" => Carbon::now()->addHour(1),
+        "exp" => Carbon::now()->addHour(JWT_EXPIRE),
       ]);
     }
 
